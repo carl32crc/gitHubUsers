@@ -1,4 +1,5 @@
 import getData from './services/getData.js';
+import userRepos from './templates/userRepos.js';
 import userProfile from './templates/userProfile.js';
 import doesNotExist from './templates/doesNotExist.js';
 
@@ -6,41 +7,37 @@ let message = document.getElementById('message-error'),
 	userGit = document.getElementById('userGit'),
 	search  = document.getElementById('search');
 
-	search.addEventListener('click', () => {
+search.addEventListener('click', () => {
 
-		let url = `https://api.github.com/users/${userGit.value}`;
+	let url = `https://api.github.com/users/${userGit.value}`;
 
-		getData('GET', url, true)
-			.then( resolve => {
-				resolveRequest(resolve, userProfile, doesNotExist);
-			})
-			.catch( error => {
-				console.log(error);
-			})
+	getData('GET', url, true)
+		.then( resolve => {
+			resolveRequest(resolve, userProfile, doesNotExist);
+		})
+		.catch( error => {
+			console.log(error);
+		})
 
-		/*getData('GET', `${url}/repos`)
-			.then( resolve => {
-				resolveRequest(resolve);
-			})
-			.catch( error => {
-				console.log(error);
-			})*/
+	getData('GET', `${url}/repos`)
+		.then( resolve => {
+			resolveRequest(resolve, userRepos);
+		})
+		.catch( error => {
+			//console.log(error);
+		})
 
-	});
+});
 
-	let resolveRequest = (resolve, template, templateNotExist) => {
+let resolveRequest = (resolve, template, templateNotExist) => {
 
-		if (resolve.status === 200) {
-			
-			template(resolve.response);
-			message.textContent = '';
-			console.log('Ok');
-			console.log(resolve.response);
-		}else {
-			templateNotExist();
-			console.log(resolve.response.message);
-		}
-	};
+
+	if (resolve.status === 200) {
+		template(resolve.response);
+	}else {
+		templateNotExist();
+	}
+};
 
 
 
