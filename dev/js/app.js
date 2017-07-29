@@ -1,4 +1,5 @@
-import getDataFromApi from './getDataFromApi.js';
+import getData from './services/getData.js';
+import userProfile from './templates/userProfile.js';
 
 let message = document.getElementById('message-error'),
 	userGit = document.getElementById('userGit'),
@@ -6,31 +7,31 @@ let message = document.getElementById('message-error'),
 
 	search.addEventListener('click', () => {
 
-		console.log('hola');
-
 		let url = `https://api.github.com/users/${userGit.value}`;
 
-		getDataFromApi('GET', url, true)
+		getData('GET', url, true)
 			.then( resolve => {
-				resolveRequest(resolve);
+				resolveRequest(resolve, userProfile);
 			})
 			.catch( error => {
 				console.log(error);
 			})
 
-		getDataFromApi('GET', `${url}/repos`)
+		/*getData('GET', `${url}/repos`)
 			.then( resolve => {
 				resolveRequest(resolve);
 			})
 			.catch( error => {
 				console.log(error);
-			})
+			})*/
 
 	});
 
-	let resolveRequest = resolve => {
+	let resolveRequest = (resolve, template) => {
 
 		if (resolve.status === 200) {
+			
+			template(resolve.response);
 			message.textContent = '';
 			console.log('Ok');
 			console.log(resolve.response);

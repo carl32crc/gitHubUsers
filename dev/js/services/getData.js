@@ -1,5 +1,5 @@
 
-const getDataFromApi = (method, url) => {
+const getData = (method, url) => {
 
 	return new Promise( (resolve, reject) => {
 
@@ -25,4 +25,4 @@ const getDataFromApi = (method, url) => {
 	});
 }
 
-module.exports = getDataFromApi;
+module.exports = getData;
