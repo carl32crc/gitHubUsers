@@ -1,5 +1,6 @@
 import getData from './services/getData.js';
 import userProfile from './templates/userProfile.js';
+import doesNotExist from './templates/doesNotExist.js';
 
 let message = document.getElementById('message-error'),
 	userGit = document.getElementById('userGit'),
@@ -11,7 +12,7 @@ let message = document.getElementById('message-error'),
 
 		getData('GET', url, true)
 			.then( resolve => {
-				resolveRequest(resolve, userProfile);
+				resolveRequest(resolve, userProfile, doesNotExist);
 			})
 			.catch( error => {
 				console.log(error);
@@ -27,7 +28,7 @@ let message = document.getElementById('message-error'),
 
 	});
 
-	let resolveRequest = (resolve, template) => {
+	let resolveRequest = (resolve, template, templateNotExist) => {
 
 		if (resolve.status === 200) {
 			
@@ -36,7 +37,7 @@ let message = document.getElementById('message-error'),
 			console.log('Ok');
 			console.log(resolve.response);
 		}else {
-			message.textContent = resolve.response.message;
+			templateNotExist();
 			console.log(resolve.response.message);
 		}
 	};

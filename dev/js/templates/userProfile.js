@@ -2,10 +2,10 @@
 const userProfile = (data) => {
 
 	let elementUserProfile = document.createElement('div'),
-		profile = document.getElementById('profile');
+		elementHTML = document.getElementById('profile') || document.getElementById('does-not-exist');
 
-		if(profile) {
-			document.body.removeChild(profile);
+		if(elementHTML) {
+			document.body.removeChild(elementHTML);
 		}
 
 		elementUserProfile.innerHTML = `

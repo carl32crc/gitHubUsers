@@ -21,7 +21,10 @@ const postCSSPlugins = [
 gulp.task('es6', function() {
   browserify({ debug: true })
     .transform(babelify)
-    .require(['./dev/js/app.js', './dev/js/services/getData.js', './dev/js/templates/userProfile.js'], { entry: true })
+    .require(['./dev/js/app.js', 
+              './dev/js/services/getData.js', 
+              './dev/js/templates/userProfile.js',
+              './dev/js/templates/doesNotExist.js'], { entry: true })
     .bundle()
     .on('error',gutil.log)
     .pipe(source('bundle.js'))
@@ -49,6 +52,9 @@ gulp.task('default', () => {
       ignore: '.git'
     }
   });
-  gulp.watch(['./dev/js/app.js', './dev/js/services/getData.js', './dev/js/templates/userProfile.js'], ['es6', server.reload])
+  gulp.watch(['./dev/js/app.js',
+              './dev/js/services/getData.js',
+              './dev/js/templates/userProfile.js',
+              './dev/js/templates/doesNotExist.js'], ['es6', server.reload])
   gulp.watch('./dev/scss/**/*.scss', ['sass']);
 });
