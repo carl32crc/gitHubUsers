@@ -3,13 +3,12 @@ import userRepos from './templates/userRepos.js';
 import userProfile from './templates/userProfile.js';
 import doesNotExist from './templates/doesNotExist.js';
 
-let message = document.getElementById('message-error'),
-	userGit = document.getElementById('userGit'),
-	search  = document.getElementById('search');
+let search  = document.getElementById('search');
 
 search.addEventListener('click', () => {
 
-	let url = `https://api.github.com/users/${userGit.value}`;
+	let userGit = document.getElementById('userGit'),
+		url = `https://api.github.com/users/${userGit.value}`;
 
 	getData('GET', url, true)
 		.then( resolve => {
