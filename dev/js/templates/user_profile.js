@@ -2,10 +2,10 @@
 const userProfile = (data) => {
 
 	let elementUserProfile = document.createElement('div'),
-		elementHTML = document.getElementById('profile') || document.getElementById('does-not-exist');
+		elementHTML = document.getElementById('profile') || document.getElementById('does-not-exist')
 
 		if(elementHTML) {
-			document.body.removeChild(elementHTML);
+			document.body.removeChild(elementHTML)
 		}
 
 		elementUserProfile.innerHTML = `
@@ -20,12 +20,11 @@ const userProfile = (data) => {
 							<span>${data.name ? data.name : 'Not have a name'}</span>
 							<span>${data.bio ? data.bio : 'Not have a bio'}</span>
 						</div>
-
 					</div>
 		`
-		elementUserProfile.id = 'profile';
-		document.body.appendChild(elementUserProfile);
+		elementUserProfile.id = 'profile'
+		document.body.appendChild(elementUserProfile)
 
-};
+}
 
-module.exports = userProfile;
+module.exports = userProfile

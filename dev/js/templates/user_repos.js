@@ -2,7 +2,7 @@
 const userRepos = (data) => {
 
 	let elementUserRepos = document.createElement('div'),
-		profile = document.getElementById('profile');
+		profile = document.getElementById('profile')
 
 		let repos = data.map( d =>
 			`<div>
@@ -10,12 +10,12 @@ const userRepos = (data) => {
 				<a href="${d.forks_url}" target="_blank" >${d.forks}</a>
 				<a href="${d.stargazers_url}" target="_blank" >${d.stargazers_count}</a>
 			</div>`
-		);
+		)
 
-		elementUserRepos.innerHTML = repos.join('');
-		elementUserRepos.className = 'user-repos';
-		profile.append(elementUserRepos);
+		elementUserRepos.innerHTML = repos.join('')
+		elementUserRepos.className = 'user-repos'
+		profile.append(elementUserRepos)
 
-};
+}
 
-module.exports = userRepos;
+module.exports = userRepos
