@@ -1,18 +1,18 @@
-#Github Api with VanillaJS/ES6
+# Github Api with VanillaJS/ES6
 ---
 ##Requeriments
 ---
 *[NodeJS](https://nodejs.org/en/)
 
-##Setup
+## Setup
 ---
 > npm install
 > gulp build
 > gulp
 
-##References
+## References
 ---
-###ES6###
+### ES6
 *[Babel](https://babeljs.io/)
-###ES5###
+### ES5
 *[Browserify](http://browserify.org/)
