@@ -32,7 +32,3 @@ let resolveRequest = (resolve, template, templateNotExist) => {
 
 	resolve.status === 200 ? template(resolve.response) : templateNotExist()
 }
-
-
-
-

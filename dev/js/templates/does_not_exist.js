@@ -2,10 +2,11 @@
 const doesNotExist = () => {
 
 	let elementDoesNotExist = document.createElement('div'),
-		profile = document.getElementById('profile')
+		elementContainer = document.getElementsByClassName('container')[0],
+		profile = document.getElementById('profile') || document.getElementById('does-not-exist')
 
 		if(profile) {
-			document.body.removeChild(profile)
+			elementContainer.removeChild(profile)
 		}
 
 		elementDoesNotExist.innerHTML = `
@@ -16,7 +17,7 @@ const doesNotExist = () => {
 					</div>
 		`
 		elementDoesNotExist.id = 'does-not-exist'
-		document.body.appendChild(elementDoesNotExist)
+		elementContainer.appendChild(elementDoesNotExist)
 
 }
 

@@ -2,10 +2,11 @@
 const userProfile = (data) => {
 
 	let elementUserProfile = document.createElement('div'),
+		elementContainer = document.getElementsByClassName('container')[0],
 		elementHTML = document.getElementById('profile') || document.getElementById('does-not-exist')
 
 		if(elementHTML) {
-			document.body.removeChild(elementHTML)
+			elementContainer.removeChild(elementHTML)
 		}
 
 		elementUserProfile.innerHTML = `
@@ -23,7 +24,7 @@ const userProfile = (data) => {
 					</div>
 		`
 		elementUserProfile.id = 'profile'
-		document.body.appendChild(elementUserProfile)
+		elementContainer.appendChild(elementUserProfile)
 
 }
 
