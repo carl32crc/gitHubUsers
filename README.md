@@ -3,9 +3,9 @@
 * [NodeJS](https://nodejs.org/en/)
 
 ## Setup
-> npm install
-> gulp build
-> gulp
+> <p>npm install</p>
+> <p>gulp build</p>
+> <p>gulp</p>
 
 ## References
 ### ES6
