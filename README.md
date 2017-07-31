@@ -1,8 +1,8 @@
 # Github Api with VanillaJS/ES6
 ---
-##Requeriments
+## Requeriments
 ---
-*[NodeJS](https://nodejs.org/en/)
+* [NodeJS](https://nodejs.org/en/)
 
 ## Setup
 ---
@@ -13,6 +13,6 @@
 ## References
 ---
 ### ES6
-*[Babel](https://babeljs.io/)
+* [Babel](https://babeljs.io/)
 ### ES5
-*[Browserify](http://browserify.org/)
+* [Browserify](http://browserify.org/)
