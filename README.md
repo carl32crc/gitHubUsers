@@ -1,5 +1,5 @@
 # Github Api with VanillaJS/ES6
-## Requeriments
+## Requirements
 * [NodeJS](https://nodejs.org/en/)
 
 ## Setup
